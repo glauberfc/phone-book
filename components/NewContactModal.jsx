@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useForm } from "react-hook-form"
+import { toast } from "react-toastify"
 import { useContacts } from "../contexts/contacts-context"
 import CloseIcon from "./CloseIcon"
 
@@ -9,6 +10,7 @@ export default function NewContactModal() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     reValidateMode: "onSubmit",
     mode: "onSubmit",
@@ -18,6 +20,18 @@ export default function NewContactModal() {
 
   function onSubmit(data) {
     addNewContact(data)
+    reset({
+      firstName: "",
+      lastName: "",
+      phoneNumber: "",
+    })
+    toast.success("New contact added successfully", {
+      position: "bottom-right",
+      autoClose: 3000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+    })
     router.push("/")
   }
 
