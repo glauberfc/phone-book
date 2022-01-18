@@ -84,7 +84,10 @@ export default function NewContactModal() {
           <span className="error-message">This field is required</span>
         )}
 
-        <input type="submit" className="block w-full mt-4 p-4 button" />
+        <input
+          type="submit"
+          className="block w-full mt-4 p-4 button button-primary"
+        />
       </form>
     </div>
   )

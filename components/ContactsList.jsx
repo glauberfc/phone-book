@@ -1,7 +1,8 @@
 import { useContacts } from "../contexts/contacts-context"
 
 export default function ContactsList() {
-  const { contacts } = useContacts()
+  const { contacts, filteredContacts } = useContacts()
+  const contactsList = filteredContacts || contacts
 
   return (
     <table className="table-fixed w-full mt-6">
@@ -19,7 +20,7 @@ export default function ContactsList() {
         </tr>
       </thead>
       <tbody className="divide-y divide-gray-100 text-gray-800 font-medium">
-        {contacts.map((item, index) => (
+        {contactsList.map((item, index) => (
           <tr key={index}>
             <td className="w-1/2 p-2 break-all">{item.firstName}</td>
             <td className="w-1/3 p-2 break-all">{item.lastName}</td>

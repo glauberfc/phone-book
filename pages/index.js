@@ -5,6 +5,7 @@ import Modal from "react-modal"
 import ContactsList from "../components/ContactsList"
 import Footer from "../components/Footer"
 import NewContactModal from "../components/NewContactModal"
+import SearchForm from "../components/SearchForm"
 
 Modal.setAppElement("#__next")
 
@@ -32,18 +33,13 @@ export default function Home() {
       <header className="flex justify-between items-center p-4 header-border">
         <h1 className="text-2xl font-bold text-gray-800">Phone Book</h1>
         <Link href="/?new-contact=true" as="/new-contact" passHref>
-          <a className="button p-3">Add a new contact</a>
+          <a className="button button-primary p-3">Add a new contact</a>
         </Link>
       </header>
 
       <main className="w-full max-w-screen-xl mx-auto">
         <div className="p-3">
-          <input
-            className="w-full h-full mt-2 p-3 bg-gray-100 text-base rounded-md border-gray-300"
-            type="text"
-            placeholder="Search by"
-          />
-
+          <SearchForm />
           <ContactsList />
         </div>
       </main>

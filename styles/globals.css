@@ -24,5 +24,9 @@ form > .error-message {
 }
 
 .button {
-  @apply bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-lg cursor-pointer;
+  @apply font-semibold rounded-lg cursor-pointer;
+}
+
+.button-primary {
+  @apply bg-blue-500 hover:bg-blue-700 text-white;
 }
