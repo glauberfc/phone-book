@@ -1,12 +1,11 @@
-import { useState } from "react"
-import { defaultContacts } from "../constants"
+import { useContacts } from "../contexts/contacts-context"
 
 export default function ContactsList() {
-  const [contacts, setContacts] = useState(defaultContacts)
+  const { contacts } = useContacts()
 
   return (
     <table className="table-auto w-full mt-6">
-      <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+      <thead className="text-sm font-semibold uppercase text-gray-500 bg-gray-50">
         <tr>
           <th className="p-2 whitespace-nowrap">
             <div className="font-semibold text-left">First name</div>
@@ -19,20 +18,12 @@ export default function ContactsList() {
           </th>
         </tr>
       </thead>
-      <tbody className="text-sm divide-y divide-gray-100">
+      <tbody className="divide-y divide-gray-100 text-gray-800 font-medium">
         {contacts.map((item, index) => (
           <tr key={index}>
-            <td className="p-2 whitespace-nowrap">
-              <div className="font-medium text-gray-800">{item.firstName}</div>
-            </td>
-            <td className="p-2 whitespace-nowrap">
-              <div className="font-medium text-left">{item.lastName}</div>
-            </td>
-            <td className="p-2 whitespace-nowrap">
-              <div className="text-left font-medium text-green-500">
-                {item.phone}
-              </div>
-            </td>
+            <td className="w-1/3 p-2 whitespace-nowrap">{item.firstName}</td>
+            <td className="w-1/3 p-2 whitespace-nowrap">{item.lastName}</td>
+            <td className="w-1/3 p-2 whitespace-nowrap">{item.phoneNumber}</td>
           </tr>
         ))}
       </tbody>

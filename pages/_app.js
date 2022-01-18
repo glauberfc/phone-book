@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import { ContactsProvider } from "../contexts/contacts-context"
+import "../styles/globals.css"
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <ContactsProvider>
+      <Component {...pageProps} />
+    </ContactsProvider>
+  )
 }
 
 export default MyApp

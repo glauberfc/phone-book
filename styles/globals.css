@@ -6,19 +6,23 @@
   @apply border-b border-gray-200;
 }
 
-/* html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+form > label {
+  @apply block font-semibold text-gray-600 text-lg;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+form > label:not(:first-child) {
+  @apply mt-3;
 }
 
-* {
-  box-sizing: border-box;
-} */
+form > input[type="text"],
+form > input[type="tel"] {
+  @apply block w-full p-3 bg-gray-100 text-base rounded-lg border border-gray-300;
+}
+
+form > .error-message {
+  @apply block mt-1 text-red-500;
+}
+
+.button {
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-lg cursor-pointer;
+}

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import Modal from "react-modal"
 import ContactsList from "../components/ContactsList"
+import Footer from "../components/Footer"
 import NewContactModal from "../components/NewContactModal"
 
 Modal.setAppElement("#__next")
@@ -16,8 +17,8 @@ export default function Home() {
         isOpen={!!router.query["new-contact"]}
         onRequestClose={() => router.push("/")}
         contentLabel="Post modal"
-        overlayClassName="fixed inset-0 flex justify-center bg-gray-900/75"
-        className="w-full max-w-screen-md p-5 border md:my-10 border-gray-200 shadow bg-white rounded-lg"
+        overlayClassName="absolute w-screen top-0 h-screen z-10 flex justify-center items-center bg-gray-900/75"
+        className="w-full max-w-screen-md h-screen md:h-auto p-5 border md:my-10 border-gray-200 shadow bg-white md:rounded-lg"
       >
         <NewContactModal />
       </Modal>
@@ -28,12 +29,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="flex justify-between p-4 header-border">
+      <header className="flex justify-between items-center p-4 header-border">
         <h1 className="text-2xl font-bold text-gray-800">Phone Book</h1>
         <Link href="/?new-contact=true" as="/new-contact" passHref>
-          <a className="bg-gray-100 text-gray-800 font-semibold py-1 px-2 rounded-sm">
-            Add a new contact
-          </a>
+          <a className="button p-3">Add a new contact</a>
         </Link>
       </header>
 
@@ -44,19 +43,12 @@ export default function Home() {
             type="text"
             placeholder="Search by"
           />
+
           <ContactsList />
         </div>
       </main>
 
-      <footer className="fixed w-full p-4 bottom-0 text-center border-t border-gray-200">
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by <span>Next.JS</span>
-        </a>
-      </footer>
+      <Footer />
     </>
   )
 }

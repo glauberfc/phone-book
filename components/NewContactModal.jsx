@@ -1,17 +1,25 @@
 import Link from "next/link"
+import { useRouter } from "next/router"
 import { useForm } from "react-hook-form"
+import { useContacts } from "../contexts/contacts-context"
 import CloseIcon from "./CloseIcon"
 
 export default function NewContactModal() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm()
-  const onSubmit = (data) => console.log(data)
+  } = useForm({
+    reValidateMode: "onSubmit",
+    mode: "onSubmit",
+  })
+  const { addNewContact } = useContacts()
+  const router = useRouter()
 
-  console.log(watch("example")) // watch input value by passing the name of it
+  function onSubmit(data) {
+    addNewContact(data)
+    router.push("/")
+  }
 
   return (
     <div className="mx-auto">
@@ -25,14 +33,44 @@ export default function NewContactModal() {
       </div>
 
       <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
-        <input defaultValue="test" {...register("example")} />
+        <label htmlFor="firstName">First name</label>
+        <input
+          id="firstName"
+          type="text"
+          {...register("firstName", { required: true })}
+        />
+        {errors.firstName && (
+          <span className="error-message">This field is required</span>
+        )}
 
-        {/* include validation with required or other standard HTML validation rules */}
-        <input {...register("exampleRequired", { required: true })} />
-        {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
+        <label htmlFor="lastName">Last name</label>
+        <input
+          id="lastName"
+          type="text"
+          {...register("lastName", { required: true })}
+        />
+        {errors.lastName && (
+          <span className="error-message">This field is required</span>
+        )}
 
-        <input type="submit" />
+        <label htmlFor="phoneNumber">Phone number</label>
+        <input
+          id="phoneNumber"
+          type="tel"
+          maxLength={14}
+          {...register("phoneNumber", {
+            required: true,
+            pattern: /^\d+$/i,
+            onChange: (e) => {
+              e.target.value = e.target.value.replace(/[^\d+]/g, "")
+            },
+          })}
+        />
+        {errors.phoneNumber && (
+          <span className="error-message">This field is required</span>
+        )}
+
+        <input type="submit" className="block w-full mt-4 p-4 button" />
       </form>
     </div>
   )
