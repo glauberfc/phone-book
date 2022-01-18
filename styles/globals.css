@@ -1,4 +1,12 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header-border {
+  @apply border-b border-gray-200;
+}
+
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -13,4 +21,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
+} */
