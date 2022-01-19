@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
 import { useContacts } from "../contexts/contacts-context"
-import CloseIcon from "./CloseIcon"
+import { XIcon } from "@heroicons/react/solid"
 
 export default function NewContactModal() {
   const {
@@ -41,7 +41,7 @@ export default function NewContactModal() {
         <h2 className="text-xl font-bold">Add a new contact</h2>
         <Link href="/">
           <a>
-            <CloseIcon />
+            <XIcon className="h-8 w-8 text-red-500" />
           </a>
         </Link>
       </div>
@@ -84,10 +84,12 @@ export default function NewContactModal() {
           <span className="error-message">This field is required</span>
         )}
 
-        <input
+        <button
           type="submit"
           className="block w-full mt-4 p-4 button button-primary"
-        />
+        >
+          Submit
+        </button>
       </form>
     </div>
   )
