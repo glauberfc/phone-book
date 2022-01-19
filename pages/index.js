@@ -1,10 +1,12 @@
+import dynamic from "next/dynamic"
 import Head from "next/head"
 import ContactsList from "../components/ContactsList"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
-import NewContactModal from "../components/NewContactModal"
 import SearchForm from "../components/SearchForm"
 import { APP_NAME } from "../constants"
+
+const NewContactModal = dynamic(() => import("../components/NewContactModal"))
 
 export default function Home() {
   return (
