@@ -16,21 +16,21 @@ export default function SearchForm() {
 
   return (
     <form
-      className="flex justify-between items-center"
+      className="flex justify-between items-center h-12"
       onSubmit={handleSubmit(onSubmit)}
       onChange={(event) => {
         filterContacts(event.target.value)
       }}
     >
       <input
-        className="w-full mr-2 bg-gray-100 text-base rounded-md border-gray-300"
+        className="w-full h-full mr-2 bg-gray-100 text-base border-gray-300 "
         type="text"
         placeholder="Search by name"
         {...register("searchTerm")}
       />
       <button
         type="reset"
-        className=" button py-3 px-5 bg-gray-300 hover:bg-gray-400 active:bg-gray-400"
+        className="button h-full py-3 px-5 bg-gray-300 hover:bg-gray-400 active:bg-gray-400"
         onClick={resetForm}
       >
         Clear
