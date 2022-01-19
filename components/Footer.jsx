@@ -1,12 +1,12 @@
 export default function Footer() {
   return (
-    <footer className="w-full mt-4 p-4 bottom-0 text-center border-t border-gray-200">
+    <footer className="self-end w-full mt-4 p-4 text-center border-t border-gray-200 text-gray-700 bg-white">
       <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+        href="https://github.com/glauberfc"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Powered by <span>Next.JS</span>
+        Made by <b>@glauberfc</b>
       </a>
     </footer>
   )

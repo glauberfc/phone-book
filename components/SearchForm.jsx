@@ -23,7 +23,7 @@ export default function SearchForm() {
       }}
     >
       <input
-        className="w-full h-full mr-2 p-3 bg-gray-100 text-base rounded-md border-gray-300"
+        className="w-full mr-2 bg-gray-100 text-base rounded-md border-gray-300"
         type="text"
         placeholder="Search by name"
         {...register("searchTerm")}

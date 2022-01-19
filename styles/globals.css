@@ -2,31 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-.header-border {
-  @apply border-b border-gray-200;
+@layer base {
+  form > label {
+    @apply block font-semibold text-gray-600 text-lg;
+  }
+
+  form > label:not(:first-child) {
+    @apply mt-3;
+  }
+
+  form > input[type="text"],
+  form > input[type="tel"] {
+    @apply block w-full p-3 bg-gray-100 text-base rounded-lg border border-gray-300;
+  }
+
+  form > .error-message {
+    @apply block mt-1 text-red-500;
+  }
 }
 
-form > label {
-  @apply block font-semibold text-gray-600 text-lg;
-}
+@layer components {
+  .header-border {
+    @apply border-b border-gray-200;
+  }
 
-form > label:not(:first-child) {
-  @apply mt-3;
-}
+  .button {
+    @apply font-semibold rounded-lg cursor-pointer;
+  }
 
-form > input[type="text"],
-form > input[type="tel"] {
-  @apply block w-full p-3 bg-gray-100 text-base rounded-lg border border-gray-300;
-}
-
-form > .error-message {
-  @apply block mt-1 text-red-500;
-}
-
-.button {
-  @apply font-semibold rounded-lg cursor-pointer;
-}
-
-.button-primary {
-  @apply bg-blue-500 hover:bg-blue-700 text-white;
+  .button-primary {
+    @apply bg-blue-500 hover:bg-blue-700 text-white;
+  }
 }

@@ -1,3 +1,4 @@
+export const APP_NAME = "Phone Book"
 export const DEFAULT_CONTACTS = [
   {
     firstName: "Alex",
