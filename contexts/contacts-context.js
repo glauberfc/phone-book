@@ -5,20 +5,20 @@ const ContactsContext = createContext()
 
 function ContactsProvider({ children }) {
   const [contacts, setContacts] = useState(DEFAULT_CONTACTS)
-  const [filteredContacts, setFilteredContacts] = useState(DEFAULT_CONTACTS)
+  const [filteredContacts, setFilteredContacts] = useState(undefined)
 
   function addNewContact(newContact) {
     setContacts([...contacts, newContact])
   }
 
   function filterContacts(query) {
-    if (!!query) {
+    if (!!query?.trim()) {
       return setFilteredContacts(
         contacts.filter(
           (contact) =>
             contact.firstName.toLowerCase().includes(query.toLowerCase()) ||
             contact.lastName.toLowerCase().includes(query.toLowerCase()) ||
-            contact.phoneNumber.toLowerCase().includes(query.toLowerCase()),
+            contact.phoneNumber.includes(query),
         ),
       )
     }
