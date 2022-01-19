@@ -26,7 +26,7 @@ export default function SearchForm() {
       <input
         className="w-full h-full mr-2 bg-gray-100 text-base border-gray-300 "
         type="text"
-        placeholder="Search by name"
+        placeholder="Search by name or phone"
         {...register("searchTerm")}
       />
       <button
