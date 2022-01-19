@@ -18,16 +18,13 @@ export default function NewContactModal() {
     reValidateMode: "onSubmit",
     mode: "onSubmit",
   })
+  const requiredFieldMessage = "This field is required"
   const { addNewContact } = useContacts()
   const router = useRouter()
 
   function onSubmit(data) {
     addNewContact(data)
-    reset({
-      firstName: "",
-      lastName: "",
-      phoneNumber: "",
-    })
+    reset()
     toast.success("New contact added successfully", {
       position: "bottom-right",
       autoClose: 3000,
@@ -38,10 +35,15 @@ export default function NewContactModal() {
     router.push("/")
   }
 
+  function closeModal() {
+    reset()
+    router.push("/")
+  }
+
   return (
     <Modal
       isOpen={!!router.query["new-contact"]}
-      onRequestClose={() => router.push("/")}
+      onRequestClose={closeModal}
       contentLabel="Post modal"
       overlayClassName="absolute w-screen top-0 h-screen z-10 flex justify-center items-center bg-gray-900/75"
       className="w-full max-w-screen-md h-screen md:h-auto p-5 border md:my-10 border-gray-200 shadow bg-white md:rounded-lg"
@@ -51,7 +53,7 @@ export default function NewContactModal() {
           <h2 className="text-xl font-bold">Add a new contact</h2>
           <Link href="/">
             <a>
-              <XIcon className="h-8 w-8 text-red-500" />
+              <XIcon className="h-8 w-8 text-red-500" onClick={closeModal} />
             </a>
           </Link>
         </div>
@@ -61,39 +63,35 @@ export default function NewContactModal() {
           <input
             id="firstName"
             type="text"
-            {...register("firstName", { required: true })}
+            {...register("firstName", { required: requiredFieldMessage })}
           />
           {errors.firstName && (
-            <span className="error-message">This field is required</span>
+            <span className="error-message">{errors.firstName.message}</span>
           )}
-
           <label htmlFor="lastName">Last name</label>
           <input
             id="lastName"
             type="text"
-            {...register("lastName", { required: true })}
+            {...register("lastName", { required: requiredFieldMessage })}
           />
           {errors.lastName && (
-            <span className="error-message">This field is required</span>
+            <span className="error-message">{errors.lastName.message}</span>
           )}
-
           <label htmlFor="phoneNumber">Phone number</label>
           <input
             id="phoneNumber"
             type="tel"
-            maxLength={14}
+            maxLength={15}
             {...register("phoneNumber", {
-              required: true,
-              pattern: /^\d+$/i,
+              required: requiredFieldMessage,
               onChange: (e) => {
-                e.target.value = e.target.value.replace(/[^\d+]/g, "")
+                e.target.value = e.target.value.replace(/[^()\s\d+]/g, "")
               },
             })}
           />
           {errors.phoneNumber && (
-            <span className="error-message">This field is required</span>
+            <span className="error-message">{errors.phoneNumber.message}</span>
           )}
-
           <button
             type="submit"
             className="block w-full mt-4 p-4 button button-primary"

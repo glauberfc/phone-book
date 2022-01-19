@@ -1,18 +1,23 @@
 export const APP_NAME = "Phone Book"
 export const DEFAULT_CONTACTS = [
   {
-    firstName: "Alex",
-    lastName: "Shatov",
-    phoneNumber: "+55 88 992050880",
+    firstName: "Tomothy",
+    lastName: "Rodriquez",
+    phoneNumber: "(428) 862 0213",
   },
   {
-    firstName: "Alex",
-    lastName: "Shatov",
-    phoneNumber: "+55 88 992050880",
+    firstName: "Rita",
+    lastName: "Davidson",
+    phoneNumber: "(027) 216 3848",
   },
   {
-    firstName: "Alex",
-    lastName: "Shatov",
-    phoneNumber: "+55 88 992050880",
+    firstName: "Raul",
+    lastName: "Wells",
+    phoneNumber: "(303) 494 1518",
+  },
+  {
+    firstName: "Jessie",
+    lastName: "Gutierrez",
+    phoneNumber: "(660) 609 3987",
   },
 ]

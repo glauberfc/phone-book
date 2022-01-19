@@ -15,7 +15,7 @@ export default function ContactsList() {
             <div className="font-semibold text-left">Last name</div>
           </th>
           <th className="p-2 whitespace-nowrap">
-            <div className="font-semibold text-left">Phone number</div>
+            <div className="font-semibold text-left">Phone</div>
           </th>
         </tr>
       </thead>
