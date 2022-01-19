@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Head>
         <title>{APP_NAME}</title>
-        <meta name="description" content={`${APP_NAME | Home}`} />
+        <meta name="description" content="Save your favorite contacts" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
