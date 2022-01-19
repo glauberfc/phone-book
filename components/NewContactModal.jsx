@@ -59,27 +59,27 @@ export default function NewContactModal() {
         </div>
 
         <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="firstName">First name</label>
+          <label htmlFor="first-name">First name</label>
           <input
-            id="firstName"
+            id="first-name"
             type="text"
             {...register("firstName", { required: requiredFieldMessage })}
           />
           {errors.firstName && (
             <span className="error-message">{errors.firstName.message}</span>
           )}
-          <label htmlFor="lastName">Last name</label>
+          <label htmlFor="last-name">Last name</label>
           <input
-            id="lastName"
+            id="last-name"
             type="text"
             {...register("lastName", { required: requiredFieldMessage })}
           />
           {errors.lastName && (
             <span className="error-message">{errors.lastName.message}</span>
           )}
-          <label htmlFor="phoneNumber">Phone number</label>
+          <label htmlFor="phone-number">Phone number</label>
           <input
-            id="phoneNumber"
+            id="phone-number"
             type="tel"
             maxLength={15}
             {...register("phoneNumber", {
@@ -93,6 +93,7 @@ export default function NewContactModal() {
             <span className="error-message">{errors.phoneNumber.message}</span>
           )}
           <button
+            id="submit"
             type="submit"
             className="block w-full mt-4 p-4 button button-primary"
           >

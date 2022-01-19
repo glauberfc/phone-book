@@ -6,7 +6,9 @@ export default function Header() {
     <header className="flex justify-between items-center p-4 header-border">
       <h1 className="text-2xl font-bold text-gray-800">{APP_NAME}</h1>
       <Link href="/?new-contact=true" as="/new-contact" passHref>
-        <a className="button button-primary p-3">Add a new contact</a>
+        <a id="add-new-contact" className="button button-primary p-3">
+          Add a new contact
+        </a>
       </Link>
     </header>
   )

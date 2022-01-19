@@ -16,6 +16,7 @@ export default function SearchForm() {
 
   return (
     <form
+      id="search-form"
       className="flex justify-between items-center h-12"
       onSubmit={handleSubmit(onSubmit)}
       onChange={(event) => {

@@ -5,7 +5,7 @@ export default function ContactsList() {
   const contactsList = filteredContacts || contacts
 
   return (
-    <table className="table-fixed w-full mt-6">
+    <table id="contact-list" className="table-fixed w-full mt-6">
       <thead className="text-sm font-semibold uppercase text-gray-500 bg-gray-50">
         <tr>
           <th className="p-2 whitespace-nowrap">
